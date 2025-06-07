@@ -48,24 +48,23 @@
       margin: 24px 0;
     }
     .countdown div {
-  background-color: #f36aaa;
-  color: white;
-  font-weight: 600;
-  padding: 8px 6px;
-  border-radius: 16px;
-  text-align: center;
-  width: 60px;
-  height: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(243, 106, 170, 0.3);
-  font-size: 14px;
-  line-height: 1.1;
-  transition: transform 0.2s ease;
-}
-
+      background-color: #f36aaa;
+      color: white;
+      font-weight: 600;
+      padding: 8px 6px;
+      border-radius: 16px;
+      text-align: center;
+      width: 60px;
+      height: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(243, 106, 170, 0.3);
+      font-size: 14px;
+      line-height: 1.1;
+      transition: transform 0.2s ease;
+    }
     .countdown div:hover {
       transform: scale(1.05);
     }
@@ -112,7 +111,6 @@
     button:hover {
       background-color: #e05291;
     }
-
     .fly, .petal {
       position: fixed;
       background-repeat: no-repeat;
@@ -120,13 +118,11 @@
       pointer-events: none;
       z-index: 1;
     }
-
     @keyframes flyAnim {
       0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
       20%  { opacity: 1; }
       100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; }
     }
-
     @keyframes fall {
       0%   { transform: translateY(-100px) rotate(0deg); opacity: 0; }
       20%  { opacity: 1; }
@@ -136,13 +132,11 @@
 </head>
 <body>
 
-<!-- Музыка -->
 <audio autoplay loop>
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2c48e95248.mp3?filename=happy-birthday-to-you-11075.mp3" type="audio/mpeg">
   Сіздің браузеріңіз аудио ойнатуды қолдамайды.
 </audio>
 
-<!-- Контейнер -->
 <div class="container">
   <div class="card">
     <h1>Шақыру</h1>
@@ -168,8 +162,10 @@
     <h3>Қатысу туралы хабарлау:</h3>
     <label>Аты-жөніңіз</label>
     <input type="text" name="name" required>
+
     <label>Телефон нөміріңіз</label>
-    <input type="text" name="phone" id="phone" required>
+    <input type="text" name="phone" id="phone" inputmode="numeric" placeholder="+7 (___) ___-__-__" required>
+
     <label>Қонақтар саны</label>
     <select name="guests" required>
       <option value="1">1 адам</option>
@@ -177,6 +173,7 @@
       <option value="3">3 адам</option>
       <option value="4">4 адам</option>
     </select>
+
     <label>Қатысасыз ба?</label>
     <div class="radio-group">
       <label>
@@ -188,12 +185,16 @@
         Өкінішке орай, қатыса алмаймын
       </label>
     </div>
+
     <button type="submit">Жауап жіберу</button>
   </form>
 </div>
 
 <script>
-  IMask(document.getElementById('phone'), { mask: '+7 (000) 000-00-00' });
+  IMask(document.getElementById('phone'), {
+    mask: '+{7} (000) 000-00-00',
+    lazy: false
+  });
 
   const targetDate = new Date("2025-06-29T17:00:00").getTime();
   setInterval(() => {
