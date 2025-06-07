@@ -164,7 +164,7 @@
     <input type="text" name="name" required>
 
     <label>Телефон нөміріңіз</label>
-    <input type="text" name="phone" id="phone" inputmode="numeric" placeholder="+7 (___) ___-__-__" required>
+    <input type="text" name="phone" id="phone" inputmode="numeric" placeholder=" 8 (___) ___-__-__" required>
 
     <label>Қонақтар саны</label>
     <select name="guests" required>
@@ -192,7 +192,7 @@
 
 <script>
   IMask(document.getElementById('phone'), {
-    mask: '+{7} (000) 000-00-00',
+    mask: '{8} (000) 000-00-00',
     lazy: false
   });
 
