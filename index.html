@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Алияның туған күні</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/imask"></script>
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: #fff0f5;
       margin: 0;
       padding: 0;
@@ -32,26 +32,39 @@
       text-align: center;
       color: #e84d9a;
       margin-bottom: 8px;
+      font-size: 28px;
     }
     h2 {
       text-align: center;
       color: #2d2d2d;
       margin-top: 0;
+      font-size: 22px;
     }
     .countdown {
       display: flex;
       justify-content: center;
-      gap: 16px;
-      margin: 20px 0;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 24px 0;
     }
     .countdown div {
       background-color: #f36aaa;
       color: white;
-      font-weight: bold;
-      padding: 16px;
-      border-radius: 12px;
+      font-weight: 600;
+      padding: 18px 12px;
+      border-radius: 16px;
       text-align: center;
-      width: 60px;
+      width: 80px;
+      height: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(243, 106, 170, 0.3);
+      font-size: 16px;
+      transition: transform 0.2s ease;
+    }
+    .countdown div:hover {
+      transform: scale(1.05);
     }
     .info-block {
       margin-top: 16px;
@@ -67,6 +80,7 @@
       border: 1px solid #f3b8cb;
       border-radius: 8px;
       margin-bottom: 16px;
+      font-family: 'Poppins', sans-serif;
     }
     .radio-group {
       display: flex;
@@ -78,6 +92,7 @@
       align-items: center;
       gap: 8px;
       font-weight: normal;
+      cursor: pointer;
     }
     button {
       background-color: #f36aaa;
@@ -88,6 +103,8 @@
       font-size: 16px;
       cursor: pointer;
       width: 100%;
+      transition: background 0.2s ease;
+      font-family: 'Poppins', sans-serif;
     }
     button:hover {
       background-color: #e05291;
