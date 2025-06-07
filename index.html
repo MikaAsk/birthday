@@ -2,10 +2,14 @@
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Алияның туған күні</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/imask"></script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #fff0f5;
@@ -51,17 +55,17 @@
       background-color: #f36aaa;
       color: white;
       font-weight: 600;
-      padding: 8px 6px;
+      padding: 6px 4px;
       border-radius: 16px;
       text-align: center;
       width: 60px;
-      height: 50px;
+      height: 45px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       box-shadow: 0 4px 12px rgba(243, 106, 170, 0.3);
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.1;
       transition: transform 0.2s ease;
     }
@@ -88,6 +92,7 @@
       display: flex;
       gap: 24px;
       margin-bottom: 20px;
+      flex-wrap: wrap;
     }
     .radio-group label {
       display: flex;
@@ -131,9 +136,8 @@
   </style>
 </head>
 <body>
-
 <audio autoplay loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2c48e95248.mp3?filename=happy-birthday-to-you-11075.mp3" type="audio/mpeg">
+  <source src="https://raw.githubusercontent.com/MikaAsk/birthday/main/25198-kairat-nurtas-tugan-kun-minus.mp3" type="audio/mpeg">
   Сіздің браузеріңіз аудио ойнатуды қолдамайды.
 </audio>
 
@@ -142,7 +146,7 @@
     <h1>Шақыру</h1>
     <h2>Алияның 1 жасқа толуына</h2>
     <p style="text-align:center">
-      Құрметті қонақтар! Сіздерді сүйікті қызымыз Алияның 1 жас тұсау кесер тойының қадірлі қонағы болуға шақырамыз!
+      Құрметті қонақтар! 29 маусым күні Алия 1 жасқа толады! Сіздерді тұсаукесер тойының қадірлі қонағы болуға шақырамыз!
     </p>
     <h3>Мерекеге дейін</h3>
     <div class="countdown">
@@ -162,10 +166,8 @@
     <h3>Қатысу туралы хабарлау:</h3>
     <label>Аты-жөніңіз</label>
     <input type="text" name="name" required>
-
     <label>Телефон нөміріңіз</label>
-    <input type="text" name="phone" id="phone" inputmode="numeric" placeholder=" 8 (___) ___-__-__" required>
-
+    <input type="text" name="phone" id="phone" inputmode="numeric" placeholder="8 (___) ___-__-__" required>
     <label>Қонақтар саны</label>
     <select name="guests" required>
       <option value="1">1 адам</option>
@@ -173,7 +175,6 @@
       <option value="3">3 адам</option>
       <option value="4">4 адам</option>
     </select>
-
     <label>Қатысасыз ба?</label>
     <div class="radio-group">
       <label>
@@ -185,7 +186,6 @@
         Өкінішке орай, қатыса алмаймын
       </label>
     </div>
-
     <button type="submit">Жауап жіберу</button>
   </form>
 </div>
