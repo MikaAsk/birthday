@@ -90,33 +90,24 @@
     button:hover {
       background-color: #e05291;
     }
-    .fly {
+
+    .fly, .petal {
       position: fixed;
-      width: 80px;
-      height: 80px;
-      background-size: 80px 80px;
       background-repeat: no-repeat;
+      background-size: contain;
       pointer-events: none;
       z-index: 1;
-      animation: fly 20s linear infinite;
     }
-    @keyframes fly {
-      0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-      10% { opacity: 1; }
-      100% { transform: translate(100vw, -100vh) rotate(360deg); opacity: 0; }
+
+    @keyframes flyAnim {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+      20%  { opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; }
     }
-    .petal {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      animation: fall 12s linear infinite;
-      z-index: 0;
-    }
+
     @keyframes fall {
-      0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
-      20% { opacity: 1; }
+      0%   { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+      20%  { opacity: 1; }
       100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
     }
   </style>
@@ -128,25 +119,6 @@
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2c48e95248.mp3?filename=happy-birthday-to-you-11075.mp3" type="audio/mpeg">
   Сіздің браузеріңіз аудио ойнатуды қолдамайды.
 </audio>
-
-<!-- Анимации -->
-<div class="fly" style="top: 100%; left: 5%; background-image: url('https://raw.githubusercontent.com/MikaAsk/birthday/main/balloon.png'); animation-delay: 0s;"></div>
-  <div class="fly" style="top: 100%; left: 5%; background-image: url('https://raw.githubusercontent.com/MikaAsk/birthday/main/balloon.png'); animation-delay: 0s;"></div>
-<div class="fly" style="top: 100%; left: 25%; background-image: url('https://raw.githubusercontent.com/MikaAsk/birthday/main/balloon%20(1).png'); animation-delay: 3s;"></div>
-<div class="fly" style="top: 100%; left: 45%; background-image: url('https://raw.githubusercontent.com/MikaAsk/birthday/main/balloon%20(2).png'); animation-delay: 6s;"></div>
-<div class="fly" style="top: 100%; left: 65%; background-image: url('https://raw.githubusercontent.com/MikaAsk/birthday/main/cat.png'); animation-delay: 9s;"></div>
-<div class="fly" style="top: 100%; left: 85%; background-image: url('https://raw.githubusercontent.com/MikaAsk/birthday/main/dog.png'); animation-delay: 12s;"></div>
-
-<!-- Лепестки -->
-<div class="petal" style="left: 10%; animation-delay: 0s;"></div>
-<div class="petal" style="left: 20%; animation-delay: 3s;"></div>
-<div class="petal" style="left: 30%; animation-delay: 6s;"></div>
-<div class="petal" style="left: 40%; animation-delay: 1s;"></div>
-<div class="petal" style="left: 50%; animation-delay: 5s;"></div>
-<div class="petal" style="left: 60%; animation-delay: 2s;"></div>
-<div class="petal" style="left: 70%; animation-delay: 4s;"></div>
-<div class="petal" style="left: 80%; animation-delay: 7s;"></div>
-<div class="petal" style="left: 90%; animation-delay: 6s;"></div>
 
 <!-- Контейнер -->
 <div class="container">
@@ -166,7 +138,7 @@
     <div class="info-block">
       <p><strong>Күні:</strong> 29 Маусым, 2025</p>
       <p><strong>Уақыты:</strong> 17:00</p>
-      <p><strong>Мекен-жайы:</strong> Талдықорған қаласы, Жансүгіров 148, \"Muammar\" кафесі</p>
+      <p><strong>Мекен-жайы:</strong> Талдықорған қаласы, Жансүгіров 148, "Muammar" кафесі</p>
     </div>
   </div>
 
@@ -201,15 +173,61 @@
 <script>
   IMask(document.getElementById('phone'), { mask: '+7 (000) 000-00-00' });
 
-  const targetDate = new Date(\"2025-06-29T17:00:00\").getTime();
+  const targetDate = new Date("2025-06-29T17:00:00").getTime();
   setInterval(() => {
     const now = new Date().getTime();
     const distance = targetDate - now;
-    document.getElementById(\"days\").textContent = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
-    document.getElementById(\"hours\").textContent = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-    document.getElementById(\"minutes\").textContent = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-    document.getElementById(\"seconds\").textContent = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+    document.getElementById("days").textContent = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+    document.getElementById("hours").textContent = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+    document.getElementById("minutes").textContent = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+    document.getElementById("seconds").textContent = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
   }, 1000);
+
+  const images = [
+    'https://raw.githubusercontent.com/MikaAsk/birthday/main/balloon.png',
+    'https://raw.githubusercontent.com/MikaAsk/birthday/main/balloon%20(1).png',
+    'https://raw.githubusercontent.com/MikaAsk/birthday/main/balloon%20(2).png',
+    'https://raw.githubusercontent.com/MikaAsk/birthday/main/cat.png',
+    'https://raw.githubusercontent.com/MikaAsk/birthday/main/dog.png'
+  ];
+
+  const createFlyingItem = () => {
+    const img = document.createElement('div');
+    const randomImg = images[Math.floor(Math.random() * images.length)];
+    const size = Math.floor(Math.random() * 50 + 40);
+    const duration = Math.random() * 20 + 10;
+    const delay = Math.random() * 10;
+    const startX = Math.random() * 100;
+    const direction = Math.random() < 0.5 ? -120 : 120;
+
+    img.className = 'fly';
+    img.style.backgroundImage = `url('${randomImg}')`;
+    img.style.width = size + 'px';
+    img.style.height = size + 'px';
+    img.style.top = '100%';
+    img.style.left = startX + '%';
+    img.style.animation = `flyAnim ${duration}s linear ${delay}s infinite`;
+    document.body.appendChild(img);
+  };
+
+  const createPetal = () => {
+    const petal = document.createElement('div');
+    const size = Math.floor(Math.random() * 15 + 10);
+    const left = Math.random() * 100;
+    const duration = Math.random() * 10 + 10;
+    const delay = Math.random() * 10;
+
+    petal.className = 'petal';
+    petal.style.width = size + 'px';
+    petal.style.height = size + 'px';
+    petal.style.backgroundImage = `url('https://raw.githubusercontent.com/MikaAsk/birthday/main/petal.png')`;
+    petal.style.left = left + '%';
+    petal.style.animation = `fall ${duration}s linear ${delay}s infinite`;
+    document.body.appendChild(petal);
+  };
+
+  for (let i = 0; i < 30; i++) createFlyingItem();
+  for (let i = 0; i < 50; i++) createPetal();
 </script>
 
 </body>
